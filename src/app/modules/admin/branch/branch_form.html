@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 ng-if="!vm.model.edit" class="page-header">Novo Ramal</h1>
+        <h1 ng-if="vm.model.edit" class="page-header">Editar Ramal</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Formulário do Ramal
+            </div>
+            <form role="form" ng-submit="vm.save()">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Nome:</label>
+                                <input class="form-control" ng-model="vm.model.name">
+                            </div>
+                            <div class="form-group">
+                                <label>Número do Ramal:</label>
+                                <input type="number" minlength="3" maxlength="11" ng-model="vm.model.branch"
+                                       class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Senha</label>
+                                <input class="form-control" ng-model="vm.model.password">
+                            </div>
+                            <div class="form-group">
+                                <label>Porta</label>
+                                <input class="form-control" minlength="4" maxlength="4" ng-model="vm.model.port">
+                            </div>
+                            <div class="form-group">
+                                <label>Grupo de Captura</label>
+                                <input class="form-control" type="number" maxlength="3"
+                                       ng-model="vm.model.group_capture">
+                            </div>
+                        </div>
+
+                        <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="form-group">
+                                    <label>Grupo de Chamada</label>
+                                    <input class="form-control" type="number" maxlength="3"
+                                           ng-model="vm.model.group_caller">
+                                </div>
+                                <label>Contexto</label>
+                                <select class="form-control" ng-model="vm.model.context">
+                                    <option value="local">Local</option>
+                                    <option value="DDD">DDD</option>
+                                    <option value="DDI">DDI</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Correio de Voz</label>
+                                <select class="form-control" ng-model="vm.model.voicemail">
+                                    <option ng-value="true">Habilitar</option>
+                                    <option ng-value="false">Desabilitar</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Email:</label>
+                                <input class="form-control" type="email" ng-model="vm.model.email"
+                                       ng-disabled="!vm.model.voicemail">
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" ng-value="true" ng-model="vm.model.copy_branch">Copia no
+                                    Ramal
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+                <div class="panel-footer height-panel-footer">
+                    <button type="submit" class="btn btn-success pull-right margin-left-10">Salvar</button>
+                    <button type="button" ng-click="vm.back()" class="btn btn-danger  pull-left">Voltar</button>
+                </div>
+            </form>
+        <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="modal-content">
+  <div class="modal-header bg-danger">
+    <button type="button" class="close" ng-click="cancel()" aria-label="Close">
+      <em class="ion-ios-close-empty sn-link-close"></em>
+    </button>
+    <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
+  </div>
+  <div class="modal-body">
+    <h2>{{message}}</h2>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary pull-right" ng-click="confirm()">{{'request.modal_button_yes' | translate}}</button>
+    <button type="button" class="btn btn-cancel  pull-left" ng-click="cancel()">{{'request.modal_button_no' | translate}}</button>
+  </div>
+</div>

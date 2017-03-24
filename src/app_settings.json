@@ -1,0 +1,28 @@
+{
+  "initial_name": "TeleNovo",
+  "mode": "dev",
+  "dev": false,
+  "locale": "pt-br",
+  "user_default_img_url": "http://localhost/files/telenovo/profile_image/user.png",
+  "api_url": {
+    "dev": {
+      "base": "https://localhost:30500/api",
+      "socket": "https://localhost:30500"
+    },
+    "homologa": {
+      "base": "https://172.0.0.8:30500/api",
+      "socket": "https://172.0.0.8:30500"
+    },
+    "production": {
+      "base": "https://api.55pbx.com:30500/api",
+      "socket": "https://api.55pbx.com:30500"
+    }
+  },
+  "plan_name": {
+    "level_0": "Discador",
+    "level_1": "VOIP",
+    "level_2": "55PBX",
+    "level_3": "Call Center"
+  }
+}
+

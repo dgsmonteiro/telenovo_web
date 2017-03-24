@@ -1,0 +1,45 @@
+<div class="modal-content">
+    <div class="modal-header bg-danger">
+        <button type="button" class="close" ng-click="closeDialog()" aria-label="Close">
+            <em class="ion-ios-close-empty sn-link-close"></em>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">{{'request.modal_title' | translate}}</h4>
+    </div>
+    <div class="modal-body" ng-if="errorNotSent == false">
+        <h4>{{message}}</h4>
+
+        <div ng-show="transaction_id.length >  0 ">
+            <h5><span>{{'request.label_status' | translate}}:</span>
+                <span class="bold-text" style="color: red;"> {{code}} - {{status}}</span>
+            </h5>
+
+            <!--      <h5><span>{{'request.label_url' | translate}}: </span>
+                    <span class="bold-text" style="color: red;">{{url}}</span>
+                  </h5>-->
+
+            <h5>
+                <span>{{'request.label_code' | translate}}: </span>
+                <span class="bold-text" style="color: red;">{{transaction_id}}</span>
+            </h5>
+        </div>
+    </div>
+
+    <div class="modal-body" ng-if="errorNotSent == true">
+        <h2>{{'request.success_support_ticket' | translate}}</h2>
+
+        <div>
+            <h5><span>{{'request.support_protocol' | translate}}</span>
+                <span class="bold-text" style="color: green;"> {{ticket_support.id}} - {{ticket_support.created_at | date:'dd/MM/yyyy'}}</span>
+            </h5>
+
+            <h5>
+                <span class="bold-text" style="color: green;">{{'request.asap_notify' | translate}}</span>
+            </h5>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger pull-left" ng-click="sendSupportError()" ng-if="errorNotSent == false && expiredToken == false">{{'request.modal_button_support' | translate}}</button>
+        <button type="button" class="btn btn-primary" ng-click="closeDialog()" ng-if="!expiredToken">{{'request.modal_button' | translate}}</button>
+        <button type="button" class="btn btn-success" ng-if="expiredToken" ui-sref="55pbx_userLogin" ng-click="closeDialog()">{{'request.modal_login' | translate}}</button>
+    </div>
+</div>

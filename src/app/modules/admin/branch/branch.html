@@ -1,0 +1,112 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Ramais</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="answer-container">
+                <button type="button" class="btn btn-primary btn-with-icon" ng-click="vm.getBranch()" uib-tooltip="Recarregar Lista"
+                        tooltip-placement="bottom">
+                    <i class="fa fa-refresh margin-right-5"></i>Atualizar
+                </button>
+                <button type="button" class="btn btn-info btn-with-icon" ng-click="vm.openForm(null)" uib-tooltip="Novo Ramal"
+                        tooltip-placement="bottom">
+                    <i class="fa fa-plus-circle margin-right-5"></i>Novo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <h3>Filtrar Ramais por:</h3>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <select class="form-control" title="Selecione Coluna" ng-click="vm.filter_value = undefined"
+                    data-container="body" selectpicker ng-model="vm.filter_type">
+                <option value='name'>Nome</option>
+                <option value='branch'>Ramal</option>
+                <option value='group_capture'>Grupo de Captura</option>
+                <option value='group_caller'>Grupo de Chamada</option>
+                <option value='context'>Contexto</option>
+                <option value='voicemail'>Voice Mail</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <input ng-if="vm.filter_type == 'name'" type="text" class="form-control" ng-model="vm.filter_value"/>
+            <input ng-if="vm.filter_type == 'group_capture' || vm.filter_type == 'group_caller' || vm.filter_type == 'branch'"
+                   type="number" class="form-control" ng-model="vm.filter_value"/>
+            <select ng-if="vm.filter_type == 'context'" class="form-control" title="" data-style="btn-primary"
+                    data-container="body" selectpicker ng-model="vm.filter_value">
+                <option value='local'>Local</option>
+                <option value='ddd'>DDD</option>
+                <option value='ddi'>DDI</option>
+            </select>
+            <select ng-if="vm.filter_type == 'voicemail'" class="form-control" title="" data-style="btn-primary"
+                    data-container="body" selectpicker ng-model="vm.filter_value">
+                <option ng-value='true'>Sim</option>
+                <option ng-value='false'>Não</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-md-2">
+                <span class="input-group-btn">
+                    <button class="btn btn-success" type="button" ng-click="vm.executeFilter()">{{'55pbx.settings.branch_number.btn_filter'|translate}}</button>
+                    <button class="btn btn-cancel" type="button" ng-click="vm.clearFilter()">{{'55pbx.settings.branch_number.btn_clear'|translate}}</button>
+                </span>
+    </div>
+
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Lista de Ramais
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th class="text-center">Nome</th>
+                            <th class="text-center">Ramal</th>
+                            <th class="text-center">Grupo de Captura</th>
+                            <th class="text-center">Grupo de Chamada</th>
+                            <th class="text-center">Contexto</th>
+                            <th class="text-center">Voice Mail</th>
+                            <th class="text-center">Ações</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="branch in vm.branchList">
+                            <td class="text-center">{{branch.name}}</td>
+                            <td class="text-center">{{branch.branch}}</td>
+                            <td class="text-center">{{branch.group_capture}}</td>
+                            <td class="text-center">{{branch.group_caller}}</td>
+                            <td class="text-center">{{branch.context}}</td>
+                            <td class="text-center">{{branch.voicemail ? 'Sim' : 'Não'}}</td>
+                            <td class="text-center">
+                                <i class="fa fa-pencil-square-o" uib-tooltip="Editar Ramal"
+                                   tooltip-placement="bottom" ng-click="vm.openForm(branch)"></i>
+                                <i class="fa fa-times" uib-tooltip="Excluir Ramal"
+                                   tooltip-placement="bottom" ng-click="vm.deleteBranch(branch)"></i>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+</div>
+
+
+<!-- /.row -->

@@ -1,0 +1,42 @@
+{
+  "general": {
+    "application": {
+      "get_information_domain": "application/information"
+    }
+  },
+  "app_pbx": {
+    "client": {
+      "post_register": "pbx/client/register",
+      "user": {
+        "get_user_list": "pbx/client/user/list",
+        "post_add_user": "pbx/client/user/add",
+        "put_update_user": "pbx/client/user/update",
+        "put_change_state_user": "pbx/client/user/change/state",
+        "delete_remove_user": "pbx/client/user/delete",
+        "get_login_history_list": "pbx/client/user/history/login/list",
+        "get_list_branch_number_unregistered_user": "pbx/client/user/list/unregistered/branch/number"
+      },
+      "branch_number": {
+        "get_branch_number_list": "pbx/client/branch/number/list",
+        "get_generate_branch_password": "pbx/client/branch/generate/branch_password",
+        "post_add_branch_number": "pbx/client/branch/number/add",
+        "put_update_branch_number": "pbx/client/branch/number/update",
+        "delete_remove_branch_number": "pbx/client/branch/number/delete"
+      }
+    },
+    "user": {
+      "get_authenticate": "pbx/user/authenticate",
+      "put_password_change": "pbx/user/password/change",
+      "put_password_recovery": "pbx/user/password/recovery",
+      "post_edit_profile_image": "pbx/user/profile/image",
+      "put_edit_profile": "pbx/user/profile/update"
+    }
+  },
+  "app": {
+    "list_app": "application/list",
+    "active_app": "application/chengeActive",
+    "new_app": "application/new",
+    "edit_app": "application/edit",
+    "list_reports": "application/report/list"
+  }
+}

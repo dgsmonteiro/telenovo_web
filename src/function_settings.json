@@ -1,0 +1,47 @@
+{
+  "controller_permission": {
+    "App55pbxSettingsController": {
+      "permission": 10,
+      "level": 0
+    },
+    "App55pbxUserClientSettingsController": {
+      "permission": 10,
+      "level": 0
+    },
+    "App55pbxBranchNumberClintSettingsController": {
+      "permission": 10,
+      "level": 0
+    },
+    "App55pbxQueueClientSettingsController": {
+      "permission": 10,
+      "level": 0
+    },
+    "App55pbxElectronicMenuClintSettingsController": {
+      "permission": 10,
+      "level": 0
+    },
+    "App55pbxNumberClientSettingsController": {
+      "permission": 10,
+      "level": 0
+    },
+    "support": {
+      "pbx": {
+        "AppSupport55pbxPlanController": [
+          "director"
+        ],
+        "AppSupport55pbxSellerController": [
+          "director",
+          "commercial"
+        ],
+        "AppSupport55pbxProposalController": [
+          "director",
+          "commercial"
+        ],
+        "AppSupport55pbxBuyLicenseController": [
+          "director",
+          "commercial"
+        ]
+      }
+    }
+  }
+}

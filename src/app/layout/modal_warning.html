@@ -1,0 +1,14 @@
+<div class="modal-content">
+  <div class="modal-header bg-warning">
+    <button type="button" class="close" ng-click="closeDialog()" aria-label="Close">
+      <em class="ion-ios-close-empty sn-link-close"></em>
+    </button>
+    <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
+  </div>
+  <div class="modal-body">
+    <h2>{{message}}</h2>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="closeDialog()">{{'request.modal_button' | translate}}</button>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="col-md-12">
+    <uib-alert ng-repeat="alert in vm.alerts" type="{{alert.type}}" dismiss-on-timeout="{{alert.time}}" close="vm.closeAlert($index)">{{alert.msg}}</uib-alert>
+    <form role="form1" novalidate="novalidate" ng-submit="vm.changeProfileData()">
+
+      <div class="panel panel-default bootstrap-panel">
+
+        <div class="panel-body">
+          <h3 class="with-line remove-padding-top">{{'support.userProfile.edit.title' | translate}}</h3>
+          <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-12">
+              <h5 class="with-line">{{'support.userProfile.edit.form.img_current' | translate}}</h5>
+              <div class="userpic">
+                <div class="userpic-wrapper">
+                  <img ng-src="{{vm.user.img_url}}">
+                </div>
+                <button class="btn btn-primary margin-center-profile text-overflow" type="file" ngf-select="vm.uploadFiles($file, $invalidFiles,false)" ngf-pattern="'image/*'" ngf-accept="'image/*'" accept="image/*"> Carregar</button>
+              </div>
+              <div class="margin-top-40">
+                <label class="text-overflow margin-center-profile label-profile-mobile">{{vm.user.img_url}} </label>
+              </div>
+            </div>
+            <div class="col-md-9 col-sm-8 col-xs-12">
+              <h5 class="with-line">{{'support.userProfile.edit.form.title' | translate}}</h5>
+              <div class="row">
+                <div class="col-md-5 col-sm-6">
+                  <div class="form-group">
+                    <label for="name">{{'support.userProfile.edit.form.email' | translate}}</label>
+                    <input type="text" class="form-control" id="email" ng-model="vm.user.email" placeholder="email" disabled required>
+                  </div>
+                </div>
+                <div class="col-md-7 col-sm-6">
+                  <div class="form-group">
+                    <label for="name">{{'userProfile.edit.form.name' | translate}}</label>
+                    <input type="text" class="form-control" id="name" ng-model="vm.user.name" placeholder="Nome" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-5 col-sm-6">
+                  <div class="form-group">
+                    <label for="document">{{'support.userProfile.edit.form.cpfCnpj' | translate}}</label>
+                    <input type="text" class="form-control" id="document" ng-model="vm.user.document" placeholder="CPF" ui-br-cpfcnpj-mask  required>
+                  </div>
+                </div>
+                <div class="col-md-7 col-sm-6">
+                  <div class="form-group">
+                    <label for="gender">{{'support.userProfile.edit.form.gender' | translate}}</label>
+                    <select class="form-control" id="gender" ng-model="vm.user.gender">
+                      <option value="female">Feminino</option>
+                      <option value="male">Masculino</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-5 col-sm-6">
+                  <div class="form-group">
+                    <label for="mobile_phone">{{'support.userProfile.edit.form.phone' | translate}}</label>
+                    <input type="text" class="form-control" id="mobile_phone" ng-model="vm.user.mobile_phone" ui-br-phone-number required>
+                  </div>
+                </div>
+                <div class="col-md-7 col-sm-6">
+                  <div class="form-group">
+                    <label for="birth_date">{{'support.userProfile.edit.form.birth_date' | translate}}</label>
+                    <input type="text" class="form-control" id="birth_date" ng-model="vm.dateFormat" bs-datepicker required>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-footer modal-panel-footer">
+          <div class="row">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-success pull-right btn-with-icon" ><i class="ion-checkmark"></i>Salvar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

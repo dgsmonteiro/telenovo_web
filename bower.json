@@ -1,0 +1,140 @@
+{
+  "name": "telenovo_admin_web",
+  "version": "2.0.0-beta",
+  "homepage": "https://www.telenovo.com",
+  "authors": [
+    "TELENOVO",
+    "Isaias Nascimento de Carvalho"
+  ],
+  "description": "Aplicação WEB da TELENOVO",
+  "license": "private",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Chart.js": "~1.0.2",
+    "Ionicons": "ionicons#~2.0.1",
+    "amcharts": "~3.15.2",
+    "amcharts-stock": "*",
+    "ammap": "~3.14.5",
+    "angular": "~1.6.0",
+    "angular-route": "1.5.11",
+    "angular-slimscroll": "~1.1.5",
+    "angular-smart-table": "~2.1.3",
+    "angular-toastr": "~1.7.0",
+    "angular-touch": "1.5.11",
+    "angular-ui-sortable": "~0.13.4",
+    "animate.css": "~3.4.0",
+    "bootstrap": "~3.3.5",
+    "bootstrap-select": "~1.9.3",
+    "bootstrap-switch": "~3.3.2",
+    "bootstrap-tagsinput": "~0.5.0",
+    "font-awesome": "fontawesome#~4.4.0",
+    "fullcalendar": "~2.4.0",
+    "highlight": "~8.8.0",
+    "jquery": "~2.1.4",
+    "jquery-ui": "~1.11.4",
+    "jquery.easing": "~1.3.1",
+    "jquery.easy-pie-chart": "~2.1.6",
+    "leaflet": "~0.7.5",
+    "moment": "~2.10.6",
+    "slimScroll": "jquery-slimscroll#~1.3.6",
+    "angular-progress-button-styles": "~0.1.0",
+    "angular-ui-router": "1.0.0-beta.1",
+    "angular-chart.js": "~0.8.8",
+    "angular-chartist.js": "~3.3.12",
+    "chartist": "0.9.5",
+    "angular-morris-chart": "~1.1.0",
+    "ionrangeslider": "~2.1.2",
+    "angular-bootstrap": "~0.14.3",
+    "angular-animate": "^1.6.1",
+    "textAngular": "~1.4.6",
+    "angular-xeditable": "~0.1.9",
+    "ng-js-tree": "~0.0.7",
+    "angular-messages": "^1.5.6",
+    "angular-resource": "^1.5.6",
+    "angular-translate": "^2.11.0",
+    "angular-translate-loader-static-files": "^2.11.0",
+    "angular-auto-validate": "^1.19.6",
+    "angular-i18n": "^1.5.8",
+    "angular-dynamic-locale": "^0.1.32",
+    "angular-tooltips": "^1.1.4",
+    "oclazyload": "^1.0.9",
+    "angular-ui-select": "^0.18.0",
+    "ng-file-upload": "^12.0.4",
+    "angular-bootstrap-checkbox": "^0.5.0",
+    "angular-input-masks": "^2.4.0",
+    "angular-wysiwyg": "^1.2.4",
+    "angular-maskmoney": "*",
+    "angular-ui-grid": "^3.2.1",
+    "pdfmake": "^0.1.20",
+    "ng-lodash": "^0.5.0",
+    "angular-loading-bar": "^0.9.0",
+    "angular-ui-mask": "^1.8.7",
+    "angular-uuid": "^0.1.0",
+    "ng-tags-input": "^3.1.1",
+    "angular-moment": "^1.0.1",
+    "angular-moment-picker": "moment-picker#^0.9.1",
+    "moment-timezone": "^0.5.11",
+    "angular-ui-bootstrap": "2.4.0",
+    "angular-strap": "^2.3.10",
+    "bootstrap-additions": "^0.3.1",
+    "angularjs-slider": "^6.0.0",
+    "js-xlsx": "^0.8.2",
+    "metisMenu": "~1.1.3"
+
+  },
+  "overrides": {
+    "amcharts": {
+      "main": [
+        "./dist/amcharts/amcharts.js",
+        "./dist/amcharts/plugins/responsive/responsive.min.js",
+        "./dist/amcharts/serial.js",
+        "./dist/amcharts/funnel.js",
+        "./dist/amcharts/pie.js",
+        "./dist/amcharts/gantt.js"
+      ]
+    },
+    "amcharts-stock": {
+      "main": "./dist/amcharts/amstock.js"
+    },
+    "ammap": {
+      "main": [
+        "./dist/ammap/ammap.js",
+        "./dist/ammap/maps/js/worldLow.js"
+      ]
+    },
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "js/dropdown.js"
+      ]
+    },
+    "slimScroll": {
+      "main": "./jquery.slimscroll.js"
+    },
+    "font-awesome": {
+      "main": [
+        "css/font-awesome.css",
+        "fonts/FontAwesome.otf",
+        "fonts/fontawesome-webfont.eot",
+        "fonts/fontawesome-webfont.svg",
+        "fonts/fontawesome-webfont.ttf",
+        "fonts/fontawesome-webfont.woff",
+        "fonts/fontawesome-webfont.woff2"
+      ]
+    }
+  },
+  "resolutions": {
+    "angular": ">=1.5",
+    "moment": ">=2.5.0",
+    "angular-animate": ">=1.5.11",
+    "angular-route": ">=1.5.11",
+    "angular-touch": ">=1.5.11",
+    "angular-ui-router": ">=1.0.0-beta.1"
+  }
+}

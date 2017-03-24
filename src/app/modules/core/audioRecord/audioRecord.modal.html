@@ -1,0 +1,153 @@
+<form name="form1" role="form1" novalidate="novalidate">
+  <div class="modal-content">
+    <div class="panel-heading bg-info">
+      <h3>{{'audio_record.title' | translate}}</h3>
+    </div>
+    <div class="panel-body">
+      <h3 class="with-line remove-padding-top">{{'audio_record.select_title' | translate}}</h3>
+      <div class="input-demo radio-demo row">
+        <div class="col-md-6">
+          <label class="radio-inline custom-radio nowrap">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="upload" ng-model="vm.option">
+            <span>{{'audio_record.select_label_updload' | translate}}</span>
+          </label>
+        </div>
+        <div class="col-md-6">
+          <label class="radio-inline custom-radio nowrap">
+            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="record" ng-model="vm.option">
+            <span>{{'audio_record.select_label_record' | translate}}</span>
+          </label>
+        </div>
+      </div>
+
+      <br/>
+      <br/>
+
+      <div class="row" ng-if="vm.option == 'upload'">
+        <div class="col-md-12">
+          <h3 class="with-line remove-padding-top">{{'audio_record.title_upload' | translate}}</h3>
+          <h5 class="with-line remove-padding-top">{{'audio_record.text_upload' | translate}}</h5>
+          <div class="col-md-3">
+            <button class="btn btn-primary  btn-with-icon" type="file"
+                    ngf-select="vm.uploadFiles($file, $invalidFiles, false)" ngf-pattern="'audio/mp3'"
+                    ngf-accept="'audio/mp3'" accept="audio/mp3" ngf-max-size="5MB" ngf-max-size="5MB">
+              <i class="ion-checkmark"></i>{{'audio_record.button_upload' | translate}}
+            </button>
+          </div>
+          <div class="col-md-9">
+            <h4 class="text-bold">{{'audio_record.file' | translate}}
+              <label class="text-info">{{vm.file.name}}</label>
+            </h4>
+          </div>
+
+          <div ng-if="vm.file_error!==null">
+            <h4 class="text-danger">{{'audio_record.upload_error' | translate}}
+              <spam>{{vm.file_error}}</spam>
+            </h4>
+          </div>
+          <div class="overlay" ng-show="vm.uploagind">
+            <i class="fa fa-refresh fa-spin"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" ng-if="vm.file_result!==null">
+        <div class="col-md-12">
+          <div class="input-group form-group">
+            <audio controls="controls">
+              <source ng-src="{{vm.file_result| trusted}}" type="audio/mp3"/>
+            </audio>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <label class="text-success">{{'audio_record.file_url' | translate}}</label>
+          <h5>
+            <a class="text-bold text-info" href="{{vm.file_result}}" target="_blank"> {{vm.file_result}}</a>
+          </h5>
+        </div>
+      </div>
+
+      <div class="row" ng-if="vm.option == 'record'">
+        <div class="col-md-12">
+          <div class="input-group form-group">
+            <h3 class="with-line remove-padding-top">{{'audio_record.title_record'| translate}}</h3>
+            <h5 class="with-line remove-padding-top">{{'audio_record.text_record' | translate}}</h5>
+
+            <ng-audio-recorder id="mainAudio" audio-model="recorded" show-player="true">
+              <div ng-if="recorder.isAvailable">
+
+                <div ng-if="recorder.status.isDenied === true" style="color: red;">
+                  <h3>{{'audio_record.record_allow' | translate}}</h3>
+                </div>
+
+                <div ng-show="recorder.audioModel" class="text-warning">
+                  <h5>{{'audio_record.record_instruction' | translate}}</h5>
+                </div>
+
+
+                <button class="btn btn-flat btn-list btn-info" ng-click="recorder.startRecord()" type="button" ng-disabled="recorder.status.isDenied === true || recorder.status.isRecording">
+                  <i class="ion-record"></i>&nbsp;{{'audio_record.btn_record' | translate}}
+                </button>
+
+                <button class="btn  btn-flat btn-list btn-danger" ng-click="recorder.stopRecord()" type="button" ng-disabled="recorder.status.isRecording === false">
+                  <i class="ion-stop"></i>&nbsp;{{'audio_record.btn_stop ' | translate}}
+                </button>
+
+                <button ng-if="recorder.status.isStopped" class="btn btn-flat btn-list btn-success" ng-click="recorder.playbackResume()"
+                        type="button" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
+                  <i class="ion-play"></i>&nbsp;{{'audio_record.btn_play' | translate}}
+                </button>
+
+                <button ng-if="!recorder.status.isStopped" class="btn btn-flat btn-list btn-success" ng-click="recorder.playbackPause()"
+                        type="button" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
+                  <i class="ion-pause"></i>&nbsp;{{'audio_record.btn_pause' | translate}}
+                </button>
+
+                <button class="btn btn-flat btn-list btn-inverse" ng-click="recorder.save('55pbx_audio_file')"
+                        type="button" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
+                  <i class="ion-ios-download"></i>&nbsp;{{'audio_record.btn_download' | translate}}
+                </button>
+                <h2 style="font-family: sans-serif; text-align: center; margin-top: 20px; border: solid 2px #333; padding: 20px 10px;"
+                    ng-if="recorder.status.isRecording">
+                  {{'audio_record.record_time' | translate}}: {{recorder.elapsedTime > 9 ? recorder.elapsedTime : ('0'+recorder.elapsedTime)}}
+                </h2>
+                <div style="max-width: 70%">
+                  <div ng-show="recorder.status.isConverting">
+                    <h2>{{'audio_record.record_convert' | translate}}</h2>
+                  </div>
+
+                  <div ng-show="recorder.isHtml5 && recorder.status.isRecording">
+                    <ng-audio-recorder-analyzer></ng-audio-recorder-analyzer>
+                  </div>
+                  <br/>
+
+                  <div ng-show="!recorder.status.isRecording && recorder.audioModel">
+                    <ng-audio-recorder-wave-view wave-color="yellow" bar-color="red"></ng-audio-recorder-wave-view>
+                  </div>
+                </div>
+
+              </div>
+
+              <div ng-if="!recorder.isAvailable">
+                Your browser does not support this feature natively, please use latest version of <a
+                href="https://www.google.com/chrome/browser" target="_blank">Google Chrome</a> or <a
+                href="https://www.mozilla.org/en-US/firefox/new/" target="_blank">Mozilla Firefox</a>. If you're on
+                Safari or Internet Explorer, you can install <a href="https://get.adobe.com/flashplayer/">Adobe Flash</a> to
+                use this feature.
+              </div>
+
+            </ng-audio-recorder>
+
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer modal-panel-footer">
+        <button type="submit" ng-disabled="vm.result_url==null" ng-click="vm.save()" class="btn btn-primary pull-right">{{'55pbx.settings.electronic_menu.btn_save' | translate}}</button>
+        <button type="reset" class="btn btn-cancel  pull-left" ng-click="vm.cancel()">{{'55pbx.settings.electronic_menu.btn_cancel' | translate}}</button>
+      </div>
+    </div>
+  </div>
+</form>
+
+
+
