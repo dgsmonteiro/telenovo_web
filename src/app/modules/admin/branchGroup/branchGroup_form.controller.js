@@ -5,24 +5,24 @@
 
 (function () {
      'use strict';
-     
+
      angular
      .module('app.admin.branchGroup')
      .controller('AppAdminBranchGroupFormController', AppAdminBranchGroupFormController);
 
-    AppAdminBranchGroupFormController.$inject = ['$translate', '$state', 'cacheService', 'branchNumberClientService', 'branchGroupClientService', 'toastr'];
+    AppAdminBranchGroupFormController.$inject = ['$translate', '$state', 'cacheService', 'branchNumberClientService', 'branchGroupClientService', 'lodash', 'toastr'];
      
      
      /** @ngInject */
-     function AppAdminBranchGroupFormController($translate, $state, cacheService, branchNumberClientService, branchGroupClientService, toastr) {
+     function AppAdminBranchGroupFormController($translate, $state, cacheService, branchNumberClientService, branchGroupClientService, lodash, toastr) {
           
           /* jshint validthis: true */
           var vm = this;
           vm.user = null;
           vm.client = null;
           vm.model = {
-                groupStrategy = 'ringall';
-                callRecording  = 'ever';
+                  // groupStrategy = 'ringall',
+                  // callRecording  = 'ever',
 
           };
           vm.getBranch = getBranch;
@@ -44,8 +44,17 @@
                }else{
                    vm.model.edit = false;
                }
-               vm.getBranch();
+
           }
+         //obtem lista de Grupos
+         function getBranchGroup() {
+             branchGroupClientService.getListClientBanchGroupByClientId(vm.client._id)
+                 .then(function (result) {
+                     result = lodash.orderBy(result, ['number'], ['asc'])
+                     vm.branchList = result;
+                     vm.branchList_copy = angular.copy(result);
+                 });
+         }
          //obtem lista de ramais
          function getBranch() {
              branchNumberClientService.getListClientBanchNumberByClientId(vm.client._id)
@@ -60,15 +69,15 @@
 
          function save() {
              if(!vm.model.edit){
-                 branchNumberClientService.addNewClientBranchNumber(vm.client._id, vm.model)
+                 branchGroupClientService.addNewClientBranchGroup(vm.client._id, vm.model)
                      .then(function (result) {
-                         toastr.success(null, "Ramal foi salvo com sucesso", {"timeOut": "8000"});
+                         toastr.success(null, "Grupo foi salvo com sucesso", {"timeOut": "8000"});
                          $state.go($state.params.state_back)
                      })
              }else{
-                 branchNumberClientService.updateClientBranchNumber(vm.client._id, vm.model)
+                 branchNumberClientService.updateClientBranchGroup(vm.client._id, vm.model)
                      .then(function (result) {
-                         toastr.success(null, "Ramal foi editado com sucesso", {"timeOut": "8000"});
+                         toastr.success(null, "Grupo foi editado com sucesso", {"timeOut": "8000"});
                          $state.go($state.params.state_back)
                      })
              }

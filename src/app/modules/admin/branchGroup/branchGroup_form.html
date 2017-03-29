@@ -34,10 +34,15 @@
                                     <option value='random'>Chamar Aleatoriamente</option>
                                 </select>
                             </div>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
                             <div class="form-group">
                                 <label>Música do Grupo:</label>
-                                <input class="form-control" type="number" maxlength="3"
-                                       ng-model="vm.model.groupMusic">
+                                <select class="form-control" ng-model="vm.model.groupMusic">
+                                    <option value='#'>Sempre</option>
+                                    <option value='#'>Nunca</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label>Gravar Chamada:</label>
@@ -48,17 +53,14 @@
                             </div>
                             <div class="form-group">
                                 <label>Ramais:</label>
-                                <select class="form-control" ng-model="vm.model.branches">
-                                    <option ng-repeat="branch in vm.branchList" value='{{branch.branch}}'>{{branch.branch}}</option>
-                                    <option value='never'>Nunca</option>
-                            </div><ul></ul>
-                            <div class="form-group">
-                                <label>Transbordo:</label>
-                                <input class="form-control" type="number" maxlength="3"
-                                       ng-model="vm.model.failOverDestination">
+                                <select class="form-control" ng-model="vm.model.branches" multiple>
+                                    <option ng-repeat="branch in vm.branchList" value='{{branch.branch}}'>
+                                        {{branch.branch}}
+                                    </option>
+                                </select>
                             </div>
                         </div>
-
+                        <!-- /.col-lg-6 (nested) -->
 
                     </div>
                     <!-- /.row (nested) -->
@@ -69,7 +71,7 @@
                     <button type="button" ng-click="vm.back()" class="btn btn-danger  pull-left">Voltar</button>
                 </div>
             </form>
-        <!-- /.panel -->
+            <!-- /.panel -->
         </div>
         <!-- /.col-lg-12 -->
     </div>

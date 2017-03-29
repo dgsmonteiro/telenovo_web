@@ -10,7 +10,7 @@
         .module('app.admin.branch')
         .controller('AppAdminBranchGroupController', AppAdminBranchGroupController);
 
-    AppAdminBranchGroupController.$inject = ['$translate', '$state', 'cacheService', 'toastr', 'branchNumberClientService', 'lodash', '$uibModal'];
+    AppAdminBranchGroupController.$inject = ['$translate', '$state', 'cacheService', 'toastr', 'branchNumberClientService', 'branchGroupClientService', 'lodash', '$uibModal'];
 
 
     /** @ngInject */
@@ -37,17 +37,17 @@
             if (vm.user == undefined || vm.user == null) {
                 $state.go('admin_user_login');
             }
-            vm.getBranchGroup();
+
         }
 
         //obtem lista de grupos
         function getBranchGroup() {
-            // branchGroupClientService.getListClientBanchNumberByClientId(vm.client._id)
-            //     .then(function (result) {
-            //         result = lodash.orderBy(result, ['number'], ['asc'])
-            //         vm.branchList = result;
-            //         vm.branchList_copy = angular.copy(result);
-            //     });
+            branchGroupClientService.getListClientBanchGroupByClientId(vm.client._id)
+                .then(function (result) {
+                    result = lodash.orderBy(result, ['number'], ['asc'])
+                    vm.branchList = result;
+                    vm.branchList_copy = angular.copy(result);
+                });
         }
 
 
@@ -77,8 +77,8 @@
                 resolve:      {
                     data: function () {
                         return {
-                            message: "Deseja realmente excluir esse ramal?",
-                            title:   "Excluir Ramal"
+                            message: "Deseja realmente excluir esse Grupo?",
+                            title:   "Excluir Grupo"
                         }
                     }
                 }
@@ -87,12 +87,12 @@
             modalInstance.result
                 .then(function (result) {
                     if (result) {
-                        branchNumberClientService.removeClientBranchNumber(vm.client._id, _item.branch)
+                        branchGroupClientService.removeClientBranchGroup(vm.client._id, _item.branch)
                             .then(function (result) {
                                 if(result.length >= 1){
                                     vm.branchList = result;
                                     vm.branchList_copy = angular.copy(result);
-                                    toastr.success(null, "Ramal excluido com sucesso", {"timeOut": "8000"});
+                                    toastr.success(null, "Grupo excluido com sucesso", {"timeOut": "8000"});
                                 }
 
                             });
@@ -108,42 +108,35 @@
                     vm.branchList = angular.copy(vm.branchList_copy);
 
                     switch (vm.filter_type) {
-                        case 'group_caller':
-                        case 'branch':
-                        case 'group_capture': {
+
+                        case 'queueNumber': {
                             data_filtered = lodash.filter(vm.branchList, function (reg) {
                                 return reg[vm.filter_type] == vm.filter_value;
                             });
                             break;
                         }
-                        case 'context':
-                        case 'name':{
+
+                        case 'queueName':{
                             if (vm.filter_value.length >0){
                                 data_filtered = lodash.filter(vm.branchList, function (reg) {
                                     return reg[vm.filter_type].toUpperCase().indexOf(vm.filter_value.toUpperCase()) !== -1;
                                 });
                             } else
-                                toastr.warning(null, $translate.instant('55pbx.settings.branch_number.filter_undefined'), {"timeOut": "8000"});
+                                toastr.warning(null, $translate.instant('admin.settings.branch_number.filter_undefined'), {"timeOut": "8000"});
 
 
                             break;
                         }
 
-                        case 'voicemail': {
-                            data_filtered = _.filter(vm.branchList, function (reg) {
-                                var value = vm.filter_value == 'true' ? true : false;
-                                return reg[vm.filter_type] == value;
-                            });
-                            break;
-                        }
+
                     }
                     vm.branchList = data_filtered;
 
                 } else {
-                    toastr.warning(null, $translate.instant('55pbx.settings.branch_number.filter_undefined'), {"timeOut": "8000"});
+                    toastr.warning(null, $translate.instant('admin.settings.branch_number.filter_undefined'), {"timeOut": "8000"});
                 }
             } else {
-                toastr.warning(null, $translate.instant('55pbx.settings.branch_number.filter_undefined'), {"timeOut": "8000"});
+                toastr.warning(null, $translate.instant('admin.settings.branch_number.filter_undefined'), {"timeOut": "8000"});
             }
         }
 

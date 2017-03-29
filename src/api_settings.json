@@ -22,6 +22,12 @@
         "post_add_branch_number": "pbx/client/branch/number/add",
         "put_update_branch_number": "pbx/client/branch/number/update",
         "delete_remove_branch_number": "pbx/client/branch/number/delete"
+      },
+      "branch_group": {
+        "get_branch_group_list": "pbx/client/branch/group/list",
+        "post_add_branch_group": "pbx/client/branch/group/add",
+        "put_update_branch_group": "pbx/client/branch/group/update",
+        "delete_remove_branch_group": "pbx/client/branch/group/delete"
       }
     },
     "user": {

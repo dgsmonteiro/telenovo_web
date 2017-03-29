@@ -36,7 +36,7 @@
             var cache_user = cacheService.get('user');
             var cache_client = cacheService.get('client');
             var url = cache_setting.api.base;
-            var method = cache_setting.api.app_pbx.client.branch_number.get_branch_number_list;
+            var method = cache_setting.api.app_pbx.client.branch_group.get_branch_group_list;
             var headers = [
                 {key: 'app_identifier', 'value': cache_app.identifier},
                 {key: 'client_logged', 'value': cache_client._id,},
@@ -65,7 +65,7 @@
             var cache_user = cacheService.get('user');
             var cache_client = cacheService.get('client');
             var url = cache_setting.api.base;
-            var method = cache_setting.api.app_pbx.client.branch_number.post_add_branch_number;
+            var method = cache_setting.api.app_pbx.client.branch_group.post_add_branch_group;
             var headers = [
                 {key: 'app_identifier', 'value': cache_app.identifier},
                 {key: 'client_logged', 'value': cache_client._id,},
@@ -74,7 +74,7 @@
             ];
             var params = {
                 client_id: _client_id,
-                branch_number: _model,
+                branch_group: _model,
             };
             requestJsonService.post(url, method, params, headers, function (result) {
                 promise_deferred.resolve(result);
@@ -86,14 +86,14 @@
         /**
          * @desc service de atualização de dados de grupo
          */
-        function updateClientBranchGroup(_client_id, _branch_number) {
+        function updateClientBranchGroup(_client_id, _branch_group) {
             var promise_deferred = $q.defer();
             var cache_setting = cacheService.get('app_settings');
             var cache_app = cacheService.get('application');
             var cache_user = cacheService.get('user');
             var cache_client = cacheService.get('client');
             var url = cache_setting.api.base;
-            var method = cache_setting.api.app_pbx.client.branch_number.put_update_branch_number;
+            var method = cache_setting.api.app_pbx.client.branch_group.put_update_branch_group;
             var headers = [
                 {key: 'app_identifier', 'value': cache_app.identifier},
                 {key: 'client_logged', 'value': cache_client._id,},
@@ -102,7 +102,7 @@
             ];
             var params = {
                 client_id: _client_id,
-                branch_number: _branch_number,
+                branch_group: _branch_group,
             };
 
             requestJsonService.put(url, method, params, headers, function (result) {
@@ -115,14 +115,14 @@
         /**
          * @desc service de remoção de grupo
          */
-        function removeClientBranchGroup(_client_id, _branch_number) {
+        function removeClientBranchGroup(_client_id, _branch_group) {
             var promise_deferred = $q.defer();
             var cache_setting = cacheService.get('app_settings');
             var cache_app = cacheService.get('application');
             var cache_user = cacheService.get('user');
             var cache_client = cacheService.get('client');
             var url = cache_setting.api.base;
-            var method = cache_setting.api.app_pbx.client.branch_number.delete_remove_branch_number;
+            var method = cache_setting.api.app_pbx.client.branch_group.delete_remove_branch_group;
             var headers = [
                 {key: 'app_identifier', 'value': cache_app.identifier},
                 {key: 'client_logged', 'value': cache_client._id,},
@@ -131,7 +131,7 @@
             ];
             var params = [
                 _client_id,
-                _branch_number,
+                _branch_group,
             ]
 
             requestJsonService.delete(url, method, params, headers, function (result) {
