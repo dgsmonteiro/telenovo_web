@@ -1,0 +1,86 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Conferências</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="answer-container">
+                <button type="button" class="btn btn-primary btn-with-icon" ng-click="vm.getConference()" uib-tooltip="Recarregar Lista"
+                        tooltip-placement="bottom">
+                    <i class="fa fa-refresh margin-right-5"></i>Atualizar
+                </button>
+                <button type="button" class="btn btn-info btn-with-icon" ng-click="vm.openForm(null)" uib-tooltip="Novo Grupo"
+                        tooltip-placement="bottom">
+                    <i class="fa fa-plus-circle margin-right-5"></i>Novo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <h3>Filtrar conferências por:</h3>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+        <div class="form-group">
+            <select class="form-control"  ng-click="vm.filter_value = undefined"
+                    data-container="body" selectpicker ng-model="vm.filter_type">
+                <option value='conferenceNumber'>Número da Sala</option>
+                <option value='conferenceName'>Nome da Sala</option>
+
+            </select>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <input ng-if="vm.filter_type == 'conferenceNumber'" type="text" class="form-control" ng-model="vm.filter_value"/>
+        </div>
+    </div>
+    <div class="col-md-2">
+                <span class="input-group-btn">
+                    <button class="btn btn-success" type="button" ng-click="vm.executeFilter()">Filtrar</button>
+                    <button class="btn btn-cancel" type="button" ng-click="vm.clearFilter()">Limpar</button>
+                </span>
+    </div>
+
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Lista de Conferências
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th class="text-center">Número da Sala</th>
+                            <th class="text-center">Nome da Sala</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="conference in vm.conferenceList">
+                            <td class="text-center">{{conference.number}}
+                            <td class="text-center">{{conference.name}}
+                            <i class="fa fa-pencil-square-o" uib-tooltip="Editar Conferencia"
+                               tooltip-placement="bottom" ng-click="vm.openForm(conference)"></i>
+                            <i class="fa fa-times" uib-tooltip="Excluir Conferencia"
+                               tooltip-placement="bottom" ng-click="vm.deleteBranch(conference)"></i>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+</div>
+
+
+<!-- /.row -->

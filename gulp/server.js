@@ -46,7 +46,6 @@ function browserSyncInit(baseDir, browser) {
           port:      3000,
           logLevel:  "error",
           https:     {
-               ca:   "ssl/55pbx_com.ca_bundle",
                key:  "ssl/55pbx_com.key",
                cert: "ssl/55pbx_com.crt"
           }

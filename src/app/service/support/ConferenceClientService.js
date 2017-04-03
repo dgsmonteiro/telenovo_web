@@ -7,9 +7,9 @@
 
     angular
         .module('app.admin')
-        .service('branchGroupClientService', branchGroupClientService);
+        .service('conferenceClientService', conferenceClientService);
 
-    branchGroupClientService.$inject = ['requestJsonService', 'cacheService', '$q'];
+    conferenceClientService.$inject = ['requestJsonService', 'cacheService', '$q'];
 
     /** @ngInject */
     /**
@@ -17,26 +17,26 @@
      * @desc Application Angular branchGroup
      * @memberOf admin
      */
-    function branchGroupClientService(requestJsonService, cacheService, $q) {
+    function conferenceClientService(requestJsonService, cacheService, $q) {
         return {
-            getListClientBanchGroupByClientId: getListClientBanchGroupByClientId,
-            addNewClientBranchGroup: addNewClientBranchGroup,
-            updateClientBranchGroup: updateClientBranchGroup,
-            removeClientBranchGroup: removeClientBranchGroup,
+            getListConferenceGroupByClientId: getListConferenceGroupByClientId,
+            addNewConferenceGroup: addNewConferenceGroup,
+            updateConferenceGroup: updateConferenceGroup,
+            removeConferenceGroup: removeConferenceGroup,
 
         };
 
         /**
          * Obter lista de Grupos de uma conta de cliente.
          */
-        function getListClientBanchGroupByClientId(_client_id) {
+        function getListConferenceGroupByClientId(_client_id) {
             var promise_deferred = $q.defer();
             var cache_setting = cacheService.get('app_settings');
             var cache_app = cacheService.get('application');
             var cache_user = cacheService.get('user');
             var cache_client = cacheService.get('client');
             var url = cache_setting.api.base;
-            var method = cache_setting.api.admin.client.branch_group.get_branch_group_list;
+            var method = cache_setting.api.admin.client.conference.get_conference_list;
             var headers = [
                 {key: 'app_identifier', 'value': cache_app.identifier},
                 {key: 'client_logged', 'value': cache_client._id,},
@@ -58,14 +58,14 @@
          * @param _model
          * @returns {Promise}
          */
-        function addNewClientBranchGroup(_client_id, _model) {
+        function addNewConferenceGroup(_client_id, _model) {
             var promise_deferred = $q.defer();
             var cache_setting = cacheService.get('app_settings');
             var cache_app = cacheService.get('application');
             var cache_user = cacheService.get('user');
             var cache_client = cacheService.get('client');
             var url = cache_setting.api.base;
-            var method = cache_setting.api.admin.client.branch_group.post_add_branch_group;
+            var method = cache_setting.api.admin.client.conference.post_add_conference;
             var headers = [
                 {key: 'app_identifier', 'value': cache_app.identifier},
                 {key: 'client_logged', 'value': cache_client._id,},
@@ -86,14 +86,14 @@
         /**
          * @desc service de atualização de dados de grupo
          */
-        function updateClientBranchGroup(_client_id, _branch_group) {
+        function updateConferenceGroup(_client_id, _conference) {
             var promise_deferred = $q.defer();
             var cache_setting = cacheService.get('app_settings');
             var cache_app = cacheService.get('application');
             var cache_user = cacheService.get('user');
             var cache_client = cacheService.get('client');
             var url = cache_setting.api.base;
-            var method = cache_setting.api.admin.client.branch_group.put_update_branch_group;
+            var method = cache_setting.api.admin.client.conference.put_update_conference;
             var headers = [
                 {key: 'app_identifier', 'value': cache_app.identifier},
                 {key: 'client_logged', 'value': cache_client._id,},
@@ -102,7 +102,7 @@
             ];
             var params = {
                 client_id: _client_id,
-                branch_group: _branch_group,
+                conference: _conference,
             };
 
             requestJsonService.put(url, method, params, headers, function (result) {
@@ -115,14 +115,14 @@
         /**
          * @desc service de remoção de grupo
          */
-        function removeClientBranchGroup(_client_id, _branch_group) {
+        function removeConferenceGroup(_client_id, _conference) {
             var promise_deferred = $q.defer();
             var cache_setting = cacheService.get('app_settings');
             var cache_app = cacheService.get('application');
             var cache_user = cacheService.get('user');
             var cache_client = cacheService.get('client');
             var url = cache_setting.api.base;
-            var method = cache_setting.api.admin.client.branch_group.delete_remove_branch_group;
+            var method = cache_setting.api.admin.client.conference.delete_remove_conference;
             var headers = [
                 {key: 'app_identifier', 'value': cache_app.identifier},
                 {key: 'client_logged', 'value': cache_client._id,},
@@ -130,7 +130,7 @@
                 {key: 'token', 'value': cache_user.token},
             ];
             var params = [
-                _client_id,
+                _conference,
                 _branch_group,
             ]
 

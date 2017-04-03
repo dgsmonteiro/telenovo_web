@@ -1,0 +1,73 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Planos de Discagem</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="answer-container">
+                <button type="button" class="btn btn-primary btn-with-icon" ng-click="vm.getDialPlan()" uib-tooltip="Recarregar Lista"
+                        tooltip-placement="bottom">
+                    <i class="fa fa-refresh margin-right-5"></i>Atualizar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <h3>Configuração de Planos de Discagem:</h3>
+<div class="row">
+
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Lista de Planos de Discagem <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Um padrão de discagem é um conjunto exclusivo de dígitos que irá selecionar esta rota e enviar a chamada para os troncos designados. Se um padrão discado corresponder a esta rota, nenhuma rota subseqüente será tentada. Se Grupos horários estiverem ativados, as rotas subseqüentes serão verificadas para partidas fora do(s) horário(s) designado(s).Regras:
+    X&nbsp;&nbsp;&nbsp; corresponde a qualqueer dígito entre 0-9
+    Z&nbsp;&nbsp;&nbsp; corresponde a qualquer dígito entre 1-9
+    N&nbsp;&nbsp;&nbsp; corresponde a qualquer dígito entre 2-9
+    [1237-9]&nbsp;   Corresponde a qualquer dígito nos colchetes (exemplo: 1,2,3,7,8,9)
+    .(ponto)&nbsp;&nbsp;&nbsp; Curinga, corresponde a um ou mais dígitos discados
+
+prepend:&nbsp;&nbsp;&nbsp; Digits to prepend to a successful match. If the dialed number matches the patterns specified by the subsequent columns, then this will be prepended before sending to the trunks.
+
+prefix:&nbsp;&nbsp;&nbsp; Prefix to remove on a successful match. The dialed number is compared to this and the subsequent columns for a match. Upon a match, this prefix is removed from the dialed number before sending it to the trunks.
+
+match pattern:&nbsp;&nbsp;&nbsp; The dialed number will be compared against the  prefix + this match pattern. Upon a match, the match pattern portion of the dialed number will be sent to the trunks
+
+CallerID:&nbsp;&nbsp;&nbsp; If CallerID is supplied, the dialed number will only match the prefix + match pattern if the CallerID being transmitted matches this. When extensions make outbound calls, the CallerID will be their extension number and NOT their Outbound CID. The above special matching sequences can be used for CallerID matching similar to other number matches."></span>
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table>
+                        <tbody><tr>
+                            <td colspan="2">
+                                (<input placeholder="prepend" type="text" size="8" id="prepend_digit_0" name="prepend_digit[0]" class="dial-pattern dpt-title" value="" tabindex="9">) +
+                                <input placeholder="prefix" type="text" size="6" id="pattern_prefix_0" name="pattern_prefix[0]" class="dpt-title" value="" tabindex="10"> |
+                                [<input placeholder="match pattern" type="text" size="16" id="pattern_pass_0" name="pattern_pass[0]" class="dpt-title" value="" tabindex="11"> /
+                                <input placeholder="CallerID" type="text" size="10" id="match_cid_0" name="match_cid[0]" class="dpt-title" value="" tabindex="12">]
+                                &nbsp;&nbsp;&nbsp;<i class="fa fa-plus-square-o" uib-tooltip="Novo Plano"
+                                   tooltip-placement="bottom" ng-click=""></i>
+                                <i class="fa fa-pencil-square-o" uib-tooltip="Editar Plano"
+                                   tooltip-placement="bottom" ng-click=""></i>
+                                <i class="fa fa-times" uib-tooltip="Excluir Plano"
+                                   tooltip-placement="bottom" ng-click=""></i>
+
+                            </td>
+                        </tr>
+                        <tr id="last_row"></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+</div>
+
+
+<!-- /.row -->

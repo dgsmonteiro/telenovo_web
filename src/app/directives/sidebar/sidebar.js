@@ -45,7 +45,12 @@ angular.module('telenovo_admin_web')
                 $scope.branchGroup = function () {
                     $state.go('admin_branchGroup');
                 };
-
+                $scope.conference = function () {
+                    $state.go('admin_conference');
+                };
+                $scope.dialPlan = function () {
+                    $state.go('admin_dialPlan');
+                };
             }
         }
     }]);

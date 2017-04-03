@@ -11,6 +11,8 @@
           'app.admin.userLogin',
           'app.admin.branch',
           'app.admin.branchGroup',
+          'app.admin.conference',
+          'app.admin.dialPlan',
 
      ])
      .config(routeConfig);
