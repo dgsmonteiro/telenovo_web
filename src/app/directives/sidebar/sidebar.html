@@ -1,7 +1,7 @@
 <div class="navbar-default sidebar" role="navigation">
     <div class="sidebar-nav navbar-collapse">
         <ul class="nav in" id="side-menu">
-            <!--<sidebar-search></sidebar-search>-->
+            <sidebar-search></sidebar-search>
             <li class="cursor-pointer" ng-click="home()" ui-sref-active="active">
                 <a><i class="fa fa-home fa-fw"></i> Home</a>
             </li>
@@ -30,10 +30,10 @@
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level" collapse="collapseVar!=2">
                     <li>
-                        <a href="">Operadora</a>
+                        <a ng-click="outboundRoutes()">Rotas de Saída</a>
                     </li>
                     <li>
-                        <a href="">Rotas de Entrada</a>
+                        <a ng-click="inboundRoutes()">Rotas de Entrada</a>
                     </li>
 
                 </ul>
@@ -69,22 +69,16 @@
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level" collapse="collapseVar!=5">
                     <li ng-class="{active: selectedMenu=='blank'}">
-                        <a  ng-click="home()">Comandos</a>
-                    </li>
-                    <li>
-                        <a  ng-click="">Discagem Rápida</a>
-                    </li>
-                    <li>
-                        <a  ng-click="">Lista Negra</a>
+                        <a  ng-click="commands()">Comandos</a>
                     </li>
                      <li>
-                        <a  ng-click="">Siga-me</a>
+                        <a  ng-click="followMe()">Siga-me</a>
                     </li>
                      <li>
-                        <a  ng-click="">URA</a>
+                        <a  ng-click="ura()">URA</a>
                     </li>
                     <li>
-                        <a  ng-click="">Time Condition</a>
+                        <a  ng-click="timeCondition()">Time Condition</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->
@@ -95,10 +89,10 @@
                         class="fa arrow"></span></a>
                 <ul class="nav nav-second-level" collapse="collapseVar!=6">
                     <li ng-class="{active: selectedMenu=='blank'}">
-                        <a  ng-click="">Anúncios</a>
+                        <a  ng-click="announcement()">Anúncios</a>
                     </li>
                     <li>
-                        <a  ng-click="">Músicas</a>
+                        <a  ng-click="music()">Músicas</a>
                     </li>
 
                 </ul>

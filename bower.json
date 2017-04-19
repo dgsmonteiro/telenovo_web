@@ -1,10 +1,9 @@
 {
   "name": "telenovo_admin_web",
-  "version": "2.0.0-beta",
-  "homepage": "https://www.telenovo.com",
+  "version": "0.0.1-beta",
+  "homepage": "https://www.telenovo.com.br",
   "authors": [
-    "TELENOVO",
-    "Isaias Nascimento de Carvalho"
+    "Douglas Monteiro Gomes"
   ],
   "description": "Aplicação WEB da TELENOVO",
   "license": "private",

@@ -1,0 +1,78 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 ng-if="!vm.model.edit" class="page-header">Novo Grupo</h1>
+        <h1 ng-if="vm.model.edit" class="page-header">Editar Grupo</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Formulário do Grupo
+            </div>
+            <form role="form" ng-submit="vm.save()">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Nome do Grupo: <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Dê a esta fila um nome breve para ajudá-lo a identificá-la."></span></label>
+                                <input type="text" class="form-control" ng-model="vm.model.name">
+                            </div>
+                            <div class="form-group">
+                                <label>Número do Grupo:</label>
+                                <input type="number" minlength="3" maxlength="11" ng-model="vm.model.number"
+                                       class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Estratégia:</label>
+                                <select class="form-control" ng-model="vm.model.groupStrategy">
+                                    <option value='ringall'>Chamar Todos ao Mesmo Tempo</option>
+                                    <option value='linear'>Chamar Todos em Sequência</option>
+                                    <option value='random'>Chamar Aleatoriamente</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Música do Grupo:</label>
+                                <select class="form-control" ng-model="vm.model.groupMusic">
+                                    <option value='#'>Sempre</option>
+                                    <option value='#'>Nunca</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Gravar Chamada:</label>
+                                <select class="form-control" ng-model="vm.model.callRecording">
+                                    <option value='ever'>Sempre</option>
+                                    <option value='never'>Nunca</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Ramais:</label>
+                                <select class="form-control" ng-model="vm.model.branches" multiple>
+                                    <option ng-repeat="branch in vm.branchList" value='{{branch.branch}}'>
+                                        {{branch.branch}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+                <div class="panel-footer height-panel-footer">
+                    <button type="submit" class="btn btn-success pull-right margin-left-10">Salvar</button>
+                    <button type="button" ng-click="vm.back()" class="btn btn-danger  pull-left">Voltar</button>
+                </div>
+            </form>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+</div>

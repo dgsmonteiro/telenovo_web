@@ -129,12 +129,12 @@
                                              var url_params = location.search.split("&");
                                              if (url_params.length > 0) {
                                                   //$ocLazyLoad.load('app.menu.55pbx');
-                                                  $state.go('admin_user_login');
+                                                  $state.go('support_user_login');
 
                                              } else {
                                                   //$ocLazyLoad.load('app.menu.55pbx');
                                                   $rootScope.menu_home_state = '55pbx_desktop';
-                                                  $state.go('admin_user_login');
+                                                  $state.go('support_user_login');
                                              }
 
                                         }

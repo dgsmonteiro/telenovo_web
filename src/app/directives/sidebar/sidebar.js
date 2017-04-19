@@ -51,6 +51,30 @@ angular.module('telenovo_admin_web')
                 $scope.dialPlan = function () {
                     $state.go('admin_dialPlan');
                 };
+                $scope.inboundRoutes = function () {
+                    $state.go('admin_inboundRoutes');
+                };
+                $scope.outboundRoutes = function () {
+                    $state.go('admin_outboundRoutes');
+                };
+                $scope.commands = function () {
+                    $state.go('admin_commands');
+                };
+                $scope.followMe = function () {
+                    $state.go('admin_followMe');
+                };
+                $scope.timeCondition = function () {
+                    $state.go('admin_timeCondition');
+                };
+                $scope.ura = function () {
+                    $state.go('admin_ura');
+                };
+                $scope.announcement = function () {
+                    $state.go('admin_announcement');
+                };
+                $scope.music = function () {
+                    $state.go('admin_music');
+                };
             }
         }
     }]);

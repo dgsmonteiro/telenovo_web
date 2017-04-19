@@ -18,6 +18,7 @@
           modules_good_cash:   'app/modules/goodcash',
           modules_cron:        'app/modules/cron',
           modules_admin:     'app/modules/admin',
+          modules_support:     'app/modules/support',
           modules_report:      'app/modules/report',
           bower:               '../bower_components/',
           

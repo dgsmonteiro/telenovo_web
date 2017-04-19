@@ -3,7 +3,8 @@
      angular.module('telenovo_admin_web', [
           'app.core',
           'app.request',
-          'app.admin'
+          'app.admin',
+          'app.support'
      ]);
 })();
 

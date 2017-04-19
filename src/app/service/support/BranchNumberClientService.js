@@ -37,7 +37,7 @@
             var cache_user = cacheService.get('user');
             var cache_client = cacheService.get('client');
             var url = cache_setting.api.base;
-            var method = cache_setting.api.app_pbx.client.branch_number.get_branch_number_list;
+            var method = cache_setting.api.admin.client.branch_number.get_branch_number_list;
             var headers = [
                 {key: 'app_identifier', 'value': cache_app.identifier},
                 {key: 'client_logged', 'value': cache_client._id,},

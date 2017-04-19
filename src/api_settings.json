@@ -16,18 +16,91 @@
         "get_login_history_list": "pbx/client/user/history/login/list",
         "get_list_branch_number_unregistered_user": "pbx/client/user/list/unregistered/branch/number"
       },
-      "branch_number": {
-        "get_branch_number_list": "pbx/client/branch/number/list",
-        "get_generate_branch_password": "pbx/client/branch/generate/branch_password",
-        "post_add_branch_number": "pbx/client/branch/number/add",
-        "put_update_branch_number": "pbx/client/branch/number/update",
-        "delete_remove_branch_number": "pbx/client/branch/number/delete"
+      "branch": {
+        "branch_number": {
+          "get_branch_number_list": "pbx/client/branch/number/list",
+          "get_generate_branch_password": "pbx/client/branch/generate/branch_password",
+          "post_add_branch_number": "pbx/client/branch/number/add",
+          "put_update_branch_number": "pbx/client/branch/number/update",
+          "delete_remove_branch_number": "pbx/client/branch/number/delete"
+        },
+        "branch_group": {
+          "get_branch_group_list": "pbx/client/branch/group/list",
+          "post_add_branch_group": "pbx/client/branch/group/add",
+          "put_update_branch_group": "pbx/client/branch/group/update",
+          "delete_remove_branch_group": "pbx/client/branch/group/delete"
+        },
+        "conference": {
+          "get_conference_list": "pbx/client/branch/conference/list",
+          "post_add_conference": "pbx/client/branch/conference/add",
+          "put_update_conference": "pbx/client/branch/conference/update",
+          "delete_remove_conference": "pbx/client/branch/conference/delete"
+        },
+        "dialPlan": {
+          "get_dialPlan_list": "pbx/client/branch/dialPlan/list",
+          "post_add_dialPlan": "pbx/client/branch/dialPlan/add",
+          "put_update_dialPlan": "pbx/client/branch/dialPlan/update",
+          "delete_remove_dialPlan": "pbx/client/branch/dialPlan/delete"
+        }
       },
-      "branch_group": {
-        "get_branch_group_list": "pbx/client/branch/group/list",
-        "post_add_branch_group": "pbx/client/branch/group/add",
-        "put_update_branch_group": "pbx/client/branch/group/update",
-        "delete_remove_branch_group": "pbx/client/branch/group/delete"
+      "trunks": {
+        "get_trunk_list": "pbx/client/trunks/trunk/list",
+        "post_add_trunk": "pbx/client/trunks/trunk/add",
+        "put_update_trunk": "pbx/client/trunks/trunk/update",
+        "delete_remove_trunk": "pbx/client/trunks/trunk/delete"
+      },
+      "general": {
+        "commands": {
+          "get_commands_list": "pbx/client/general/commands/list",
+          "post_add_commands": "pbx/client/general/commands/add",
+          "put_update_commands": "pbx/client/general/commands/update",
+          "delete_remove_commands": "pbx/client/general/commands/delete"
+
+        },
+        "followMe": {
+          "get_followMe_list": "pbx/client/general/followMe/list",
+          "post_add_followMe": "pbx/client/general/followMe/add",
+          "put_update_followMe": "pbx/client/general/followMe/update",
+          "delete_remove_followMe": "pbx/client/general/followMe/delete"
+
+        },
+        "speedDial": {
+          "get_speedDial_list": "pbx/client/general/speedDial/list",
+          "post_add_speedDial": "pbx/client/general/speedDial/add",
+          "put_update_speedDial": "pbx/client/general/speedDial/update",
+          "delete_remove_speedDial": "pbx/client/general/speedDial/delete"
+
+        },
+        "timeCondition": {
+          "get_timeCondition_list": "pbx/client/general/timeCondition/list",
+          "post_add_timeCondition": "pbx/client/general/timeCondition/add",
+          "put_update_timeCondition": "pbx/client/general/timeCondition/update",
+          "delete_remove_timeConditions": "pbx/client/general/timeCondition/delete"
+
+        },
+        "ura": {
+          "get_ura_list": "pbx/client/general/ura/list",
+          "post_add_ura": "pbx/client/general/ura/add",
+          "put_update_ura": "pbx/client/general/ura/update",
+          "delete_remove_ura": "pbx/client/general/ura/delete"
+
+        }
+      },
+      "audio": {
+        "announcement": {
+          "get_announcement_list": "pbx/client/audio/announcement/list",
+          "post_add_announcement": "pbx/client/audio/announcement/add",
+          "put_update_announcement": "pbx/client/audio/announcement/update",
+          "delete_remove_announcement": "pbx/client/audio/announcement/delete"
+
+        },
+        "music": {
+          "get_music_list": "pbx/client/audio/music/list",
+          "post_add_music": "pbx/client/audio/music/add",
+          "put_update_music": "pbx/client/audio/music/update",
+          "delete_remove_music": "pbx/client/audio/music/delete"
+
+        }
       }
     },
     "user": {

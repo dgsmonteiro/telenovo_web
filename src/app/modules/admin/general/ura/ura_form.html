@@ -1,0 +1,123 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h1 ng-if="!vm.model.edit" class="page-header">Nova URA</h1>
+        <h1 ng-if="vm.model.edit" class="page-header">Editar URA</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Formulário de URA
+            </div>
+            <form role="form" ng-submit="vm.save()">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Nome da URA: <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Nome deste IVR."></span>
+                                </label>
+                                <input type="text" class="form-control" ng-model="vm.model.name">
+                            </div>
+                            <div class="form-group">
+                                <label>Descrição da URA: <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Descrição deste ivr."></span></label>
+                                <input type="text" minlength="3" maxlength="11" ng-model="vm.model.number"
+                                       class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Anúncio: <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Saudação para ser jogado na entrada para o Ivr."></span></label>
+                                <select class="form-control" ng-model="vm.model.groupStrategy">
+                                    <option ng-repeat="announcement in vm.announcementList" value='{{announcement.announcement}}'>
+                                        {{announcement.announcement}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Transferência Direta: <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="
+Fornece opções para chamadores para discagem direta de uma extensão. Discagem direta pode ser:
+- Completamente desativado
+- Ativado para todas as extensões de um sistema."></span></label>
+                                <select class="form-control" ng-model="vm.model.groupMusic">
+                                    <option value='#'>Sempre</option>
+                                    <option value='#'>Nunca</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Tempo de Espera: <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Quantidade de tempo a ser considerado um tempo limite."></span></label>
+                                <input type="number" minlength="3" maxlength="11" ng-model="vm.model.number"
+                                       class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Tentativas inválidas: <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Número de vezes que deve tentar novamente ao receber uma resposta inválida / incompatível do chamado"></span></label>
+                                <select class="form-control" ng-model="vm.model.branches" multiple>
+                                    <option ng-repeat="branch in vm.branchList" value='{{branch.branch}}'>
+                                        {{branch.branch}}
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th colspan="2" class="text-center">Opção</th>
+                                            <th colspan="3" class="text-center">Destino</th>
+                                            <th colspan="1" class="text-center">Retorno</th>
+                                            <th colspan="1" class="text-center">Remover</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody><tr>
+                                            <td colspan="2">
+                                                <input placeholder="digito pressionado" type="number" size="1" id="" name="[0]" class="" value="" tabindex="">
+                                            </td>
+                                            <td colspan="3">
+                                                <select class="form-control" ng-model="vm.model.groupMusic">
+                                                    <option value='#'>Sempre</option>
+                                                    <option value='#'>Nunca</option>
+                                                </select>
+                                            </td>
+                                            <td class="text-center" colspan="1">
+                                                <input type="checkbox" ng-value="true" ng-model="vm.model.silent"> <span class="glyphicon glyphicon-question-sign" data-toggle="tooltip" title="Marque esta caixa para que esta opção retornar a um IVR pai se ele foi chamado de um IVR pai. Se não, irá para o destino escolhido.
+                                         O caminho de retorno será para um IVR que estava no caminho de chamada antes desta IVR que poderia levar a resultados estranhos se houvesse um IVR chamado no caminho de chamada, mas não imediatamente antes desta"></span>
+                                            </td>
+                                            <td colspan="1" class="text-center">
+                                                <i class="fa fa-times" uib-tooltip="Excluir"
+                                                   tooltip-placement="bottom" ng-click=""></i>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">
+                                                <i class="fa fa-plus" uib-tooltip="Adicionar"
+                                                   tooltip-placement="bottom" ng-click="" title="Adicionar Entrada"></i>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.table-responsive -->
+                            </div>
+                            <!-- /.panel-body -->
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+                <div class="panel-footer height-panel-footer">
+                    <button type="submit" class="btn btn-success pull-right margin-left-10">Salvar</button>
+                    <button type="button" ng-click="vm.back()" class="btn btn-danger  pull-left">Voltar</button>
+                </div>
+            </form>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+</div>
